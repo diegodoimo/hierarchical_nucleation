@@ -20,8 +20,7 @@ def double_centering(M):
     N = M.shape[0]
 
     Mc = - 0.5 * (M - 1. / N * np.sum(M, axis=0)[None, :] - 1. / N * np.sum(M, axis=1)[:,
-                                                                     None] + 1. / N ** 2 * np.sum(
-        M))
+                                                                     None] + 1. / N ** 2 * np.sum(M))
 
     return Mc
 
@@ -52,6 +51,28 @@ def kernel_PCA(layer):
 
 class Data:
 
+    '''
+    Computes the overlap with the ground truth labels and the density peaks of a representation.
+
+    Parameters:
+    distances:  dictionary containing the k-nearest neighbor distances (distnces[0] of shape [n_samples, n_nearest neighbors])
+                and their integer labels(distances[1] of shape [n_samples, n_nearest neighbors])
+    maxk:       integer. the number k of nearest neighbors to use in the computation
+
+    Methods:
+    compute_id:
+        Returns: float: the intrinsic dimension of the dataset.
+
+    compute_density_kNN: computes the local density of all the data points using with k nearest neighbors.
+                        (k=30 by default)
+
+    compute_clustering: computes the density peaks. (Z=1.65 by default)
+
+    return_label_overlap_mean:
+        Returns: float: the average ground thruth overlap using the first k=30 neighbors
+
+    '''
+
     def __init__(self, distances=None, maxk=None, verbose=True, njobs=cores, labels=None):
         self.maxk = maxk
 
@@ -59,6 +80,7 @@ class Data:
         if self.maxk is None:
             self.maxk = distances[0].shape[1] - 1
 
+        #nu
         self.Nele = distances[0].shape[0]
         self.distances = distances[0][:, :self.maxk + 1]
         self.dist_indices = distances[1][:, :self.maxk + 1]
@@ -206,6 +228,19 @@ class Data:
 
 
 class Data_sets:
+
+    '''
+    Computes the overlaps and density peaks of a set of datasets e.g. the layers of a deep neural network;
+    Parameters:
+        distance_list: list of distances (as defined in Data).
+
+        maxk_list: list of integers. The number k of nearest neighbors of each dataset to use in the computations.
+
+        labels_list: ...
+
+    Methods:
+
+    '''
 
     def __init__(self, distances_list=(), labels_list=(),
                  maxk_list=[None], verbose=False, njobs=1):
