@@ -189,6 +189,8 @@ class Data:
 
         self.out_bord = out_bord + Rho_min - 1 - np.log(
             Nele)
+        for i in range(len(self.centers_m)):
+            self.out_bord[i,i] = self.Rho[self.centers_m[i]]
 
         if self.verb:
             print('Clustering finished, {} clusters found'.format(self.Nclus_m))
