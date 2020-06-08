@@ -2,7 +2,6 @@ import numpy as np
 
 from data import Data
 
-
 class Data_sets:
 
     def __init__(self, distances_list=(), labels_list=(),
