@@ -90,7 +90,20 @@ class Data:
         self.njobs = njobs
         self.gt_labels = labels
 
+    def remove_zero_dists(self):
+        # TODO remove all the degenerate distances
+        assert (self.distances is not None)
+
+        # find all points with any zero distance
+        indx = np.nonzero(self.distances[:, 1] < np.finfo(float).eps)
+
+        # set nearest distance to eps:
+        self.distances[indx, 1] = np.finfo(float).eps
+
+        #print('{} couple of points where at 0 distance: their distance have been set to eps: {}'.format(len(indx[0]), np.finfo(float).eps))
+
     def compute_id(self, decimation=1, fraction=0.9, algorithm='base'):
+        self.remove_zero_dists()
         assert (0. < decimation and decimation <= 1.)
 
         # self.id_estimated_ml, self.id_estimated_ml_std = return_id(self.distances, decimation)
@@ -282,11 +295,9 @@ class Data_sets:
 
     def compute_id(self, decimation=1, fraction=0.9):
 
-        # print(f'computing id: fraction = {fraction}, decimation = {decimation}, range = 2'.format)
         for i, d in enumerate(self.data_sets):
             print('computing id of layer ', i)
             d.compute_id(decimation=decimation, fraction=fraction)
-            # print('id computation finished')
 
         self.ids = [d.id_selected for d in self.data_sets]
 
@@ -308,7 +319,7 @@ class Data_sets:
         overlap_means = []
 
         for i, d in enumerate(self.data_sets):
-            print('computing overlap for dataset ', i)
+            print(f'computing overlap for dataset {i}/{len(self.data_sets)}')
             overlap_means.append(d.return_label_overlap_mean(k=k))
 
         return overlap_means
