@@ -27,5 +27,3 @@ scipy 1.4\
 scikt-learn 0.22\
 jupyter notebook
 
-## 
-
