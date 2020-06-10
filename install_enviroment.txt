@@ -1,1 +1,0 @@
-conda create -n hier_nucl python numpy matplotlib scipy cython scikit-learn jupyter notebook
