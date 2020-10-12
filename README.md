@@ -1,6 +1,6 @@
 # Hierarchical nucleation in deep neural networks
 
-This repository is the official implementation of the paper [Hierarchical nucleation in deep neural networks](https://arxiv.org/abs/2007.03506)
+This repository is the official implementation of the paper [Hierarchical nucleation in deep neural networks](https://arxiv.org/abs/2007.03506).
 
 ## Requirements
 
