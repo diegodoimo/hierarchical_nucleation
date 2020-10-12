@@ -1,5 +1,7 @@
 # Hierarchical nucleation in deep neural networks
 
+This repository is the official implementation of the paper [Hierarchical nucleation in deep neural networks](https://arxiv.org/abs/2007.03506)
+
 ## Requirements
 
 To create a local enviroment with the packages required to run the code please download and install Anaconda
@@ -11,7 +13,7 @@ then type:
 ```setup
 conda env create -f environment.yml
 ```
-to remove the enviroment type:
+to remove the enviroment, simply type:
 
 ```setup
 conda remove --name hier_nucl --all
