@@ -14,15 +14,7 @@ then type:
 conda env create -f environment.yml
 ```
 
-The specific requirements we used to run the code are:
-
-python 3.8\
-cython 0.29\
-numpy 1.18\
-matplotlib 3.1\
-scipy 1.4\
-scikt-learn 0.22\
-jupyter notebook
+<!-- The specific requirements we used to run the code are: python 3.8\ cython 0.29\ numpy 1.18\ matplotlib 3.1\ scipy 1.4\ scikt-learn 0.22\ jupyter notebook -->
 
 Once the environment is created to activate it type:
 
