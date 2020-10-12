@@ -13,11 +13,6 @@ then type:
 ```setup
 conda env create -f environment.yml
 ```
-to remove the enviroment, simply type:
-
-```setup
-conda remove --name hier_nucl --all
-```
 
 The specific requirements we used to run the code are:
 
@@ -29,3 +24,25 @@ scipy 1.4\
 scikt-learn 0.22\
 jupyter notebook
 
+Once the environment is created to activate it type:
+
+```setup
+conda activate hier_nucl
+```
+Then open a jupyter notebook and follow the instructions to run the experiments described in the [paper](https://arxiv.org/abs/2007.03506).
+
+```setup
+jupyter notebook hier_nucl Hierarchical_nucleation_in_deep_networks.ipynb
+```
+
+To deactivate the environment type:
+
+```setup
+conda deativate
+```
+
+To remove the enviroment, simply type:
+
+```setup
+conda remove --name hier_nucl --all
+```
