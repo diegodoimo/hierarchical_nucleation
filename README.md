@@ -3,12 +3,11 @@
 This repository is the official implementation of the paper [Hierarchical nucleation in deep neural networks](https://arxiv.org/abs/2007.03506).
 
 ## Requirements
-
-To create a local enviroment with the packages required to run the code please download and install Anaconda
+Please make sure to have Anaconda downloaded and installed
 
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/
 
-then type:
+To create a local enviroment with the packages required to run the code download this reporitory in an empty directory then type:
 
 ```setup
 conda env create -f environment.yml
