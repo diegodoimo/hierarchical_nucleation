@@ -31,9 +31,3 @@ To deactivate the environment type:
 ```setup
 conda deativate
 ```
-
-To remove the enviroment, simply type:
-
-```setup
-conda remove --name hier_nucl --all
-```
