@@ -4,6 +4,7 @@ This repository contains the code to reproduce the results of the paper [Hierarc
 
 ### Requirements
 We will use Anaconda to create the environment. You can install it by following:
+
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/
 
 You can create the environment with the following command:
